@@ -1,0 +1,40 @@
+<h3>スケジュール新規作成</h3>
+ 
+    <%= form_with model: @task do |f| %>
+      <table>
+        <tr>
+          <th><%= f.label :name ,"タイトル" %></th>
+          <td><%= f.text_field :name %></td>
+        </tr>
+
+        <tr>
+          <th><%= f.label :started_at ,"開始日" %></th>
+          <td><%= f.date_field :started_at %></td>
+        </tr>
+ 
+        <tr>
+          <th><%= f.label :ended_at ,"終了日" %></th>
+          <td><%= f.date_field :ended_at %></td>
+        </tr>
+
+        <tr>
+          <th><%= f.label :all_day ,"終日" %></th>
+          <td><%= f.check_box :all_day %></td>
+        </tr>
+ 
+        <tr>
+          <th><%= f.label :description ,"スケジュールメモ" %></th>
+          <td><%= f.text_area :description %></td>
+        </tr>
+      </table>
+ 
+      <div>
+          <p><%= f.submit "スケジュールを更新する"%></p>
+          <p><%= link_to "スケジュール一覧に戻る", :tasks %></p>
+      </div>
+    <% end %>
+
+    <footer>
+       <h1>現在の日時： <%= Date.today.strftime("%Y年%m月%d日") %> </h1>
+    </footer>
+
